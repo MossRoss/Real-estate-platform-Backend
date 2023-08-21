@@ -12,13 +12,15 @@ CREATE TABLE properties (
     description TEXT,
     price NUMERIC(10, 2),
     location VARCHAR(255),
+    purpose TEXT,
+    is_favorite BOOLEAN,
     image_url VARCHAR(500)
 );
 
-DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS users;
 
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL
-);
+-- CREATE TABLE users (
+--     id SERIAL PRIMARY KEY,
+--     username VARCHAR(255) NOT NULL,
+--     password VARCHAR(255) NOT NULL
+-- );
