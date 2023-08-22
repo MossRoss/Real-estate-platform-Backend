@@ -65,18 +65,8 @@ const updateProperty = async (id, property) => {
     property;
   try {
     const updatedPropery = await db.any(
-      `UPDATE properties SET title = $1, description = $2, price = $3, location = $4, puropse = $5, is_favorite = $6, image_url = $7 WHERE id = $8 RETURNING *`,
-      [
-        title,
-        description,
-        price,
-        location,
-        purpose,
-        is_favorite,
-        purpose,
-        image_url,
-        id,
-      ]
+      `UPDATE properties SET title = $1, description = $2, price = $3, location = $4, purpose = $5, is_favorite = $6, image_url = $7 WHERE id = $8 RETURNING *`,
+      [title, description, price, location, purpose, is_favorite, image_url, id]
     );
 
     return updatedPropery;

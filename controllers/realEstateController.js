@@ -67,7 +67,7 @@ router
     if (updatedProperty.length === 0) {
       res.status(404).json({ message: "Id not found!" });
     } else {
-      res.json(updatedProperty);
+      res.json(updatedProperty[0]);
     }
   });
 
