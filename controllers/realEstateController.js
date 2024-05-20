@@ -27,13 +27,15 @@ const PROPERTY_FIELDS = [
   "is_favorite",
   "image_url",
 ];
-const isValidProperty = (property) => {
+const isValidProperty = (propertyById) => {
+  // must have all the STUDENT_FIELDS
   for (let field of PROPERTY_FIELDS) {
-    if (!property.hasOwnPropery(field)) {
+    if (!propertyById.hasOwnProperty(field)) {
       return false;
     }
   }
-  for (let field in property) {
+  // should not have extra fields
+  for (let field in propertyById) {
     if (!PROPERTY_FIELDS.includes(field)) {
       return false;
     }
@@ -62,10 +64,10 @@ router
     }
     const createdProperty = await createProperty(req.body);
 
-    if (!title) {
+    if (!createdProperty) {
       res.status(400).json({
         status: false,
-        message: "You have to give a title for the property.",
+        message: "You have to give all fields for the property.",
       });
     } else {
       res.json({ status: true, data: createdProperty });
@@ -131,7 +133,7 @@ router
           .status(404)
           .json({ message: `Could not find property with id ${id}!` });
       }
-      const property = request.body;
+      const property = req.body;
       if (!isValidProperty(property)) {
         return res.status(400).json({
           error: `property must only have fields: ${PROPERTY_FIELDS.join(
