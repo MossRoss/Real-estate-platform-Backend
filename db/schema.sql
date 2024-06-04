@@ -1,10 +1,12 @@
-DROP DATABASE IF EXISTS real_estate;
+-- DROP DATABASE IF EXISTS real_estate;
 
-CREATE DATABASE real_estate;
+-- CREATE DATABASE real_estate;
 
-\c real_estate;
+-- \c real_estate;
 
 -- DROP TABLE IF EXISTS properties;
+
+DROP TABLE IF EXISTS properties;
 
 CREATE TABLE properties (
     id SERIAL PRIMARY KEY,
