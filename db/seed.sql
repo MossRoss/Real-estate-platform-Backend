@@ -1,4 +1,4 @@
-\c real_estate
+-- \c real_estate
 
 INSERT INTO 
 properties (title, description, price, location, purpose, is_favorite, image_url) 
